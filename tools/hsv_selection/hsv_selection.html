@@ -26,41 +26,41 @@
     <div class="caption_open">Open the image <input type="file" id="fileInput" name="file" /></div>
     <div class="container">
         <div class="column">
-            <h4 id="caption">Original image</h4>
+            <h4 id="caption" class="unselectable">Original image</h4>
             <img id="imageSrc" onerror="this.style.display='none'" />
         </div>
         <div class="column">
-            <h4 id="caption">HSV</h4>
+            <h4 id="caption" class="unselectable">HSV</h4>
             <canvas id="hsvOutput" />
         </div>
         <div class="column">
-            <h4 id="caption">Mask</h4>
+            <h4 id="caption" class="unselectable">Mask</h4>
             <canvas id="maskOutput" />
         </div>
         <div class="column">
-            <h4 id="caption">Bitwise and</h4>
+            <h4 id="caption" class="unselectable">Bitwise and</h4>
             <canvas id="bitwiseandOutput" />
         </div>
         <div class="column">
-            <h4 id="caption">Change H, S and V ranges</h4>
+            <h4 id="caption" class="unselectable">Change H, S and V ranges</h4>
             <div id="trackbars">
-                <b>H low</b>
+                <b class="unselectable">H low</b>
                 <input type="range" id="h_low" disabled value="0" min="0" max="180" step="1">
                 <output id="out_h_low"></output><br>
-                <b>S low</b>
+                <b class="unselectable">S low</b>
                 <input type="range" id="s_low" disabled value="0" min="0" max="255" step="1">
                 <output id="out_s_low"></output><br>
-                <b>V low</b>
+                <b class="unselectable">V low</b>
                 <input type="range" id="v_low" disabled value="0" min="0" max="255" step="1">
                 <output id="out_v_low"></output><br>
-                <br>
-                <b>H high</b>
+                <br class="unselectable">
+                <b class="unselectable">H high</b>
                 <input type="range" id="h_high" disabled value="180" min="0" max="180" step="1">
                 <output id="out_h_high"></output><br>
-                <b>S high</b>
+                <b class="unselectable">S high</b>
                 <input type="range" id="s_high" disabled value="255" min="0" max="255" step="1">
                 <output id="out_s_high"></output><br>
-                <b>V high</b>
+                <b class="unselectable">V high</b>
                 <input type="range" id="v_high" disabled value="255" min="0" max="255" step="1">
                 <output id="out_v_high"></output><br>
             </div>

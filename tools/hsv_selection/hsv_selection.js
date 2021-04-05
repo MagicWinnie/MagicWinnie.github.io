@@ -35,9 +35,8 @@ v_high.oninput = function () {
     document.getElementById("out_v_high").innerHTML = this.value;
 }
 
-// main function
-imgElement.onload = function () {
-    setInterval(function () {
+function runner() {
+    try {    
         let mat = cv.imread(imgElement);
         
         let hsv = new cv.Mat();
@@ -54,12 +53,19 @@ imgElement.onload = function () {
         cv.imshow('hsvOutput', hsv);
         cv.imshow('maskOutput', mask);
         cv.imshow('bitwiseandOutput', out);
-    }, 100);
-};
 
-imgElement.onclose = function () {
-    mat.delete();
-    hsv.delete();
+        mat.delete(); hsv.delete(); mask.delete();
+        low.delete(); high.delete(); out.delete();
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+// main function
+imgElement.onload = function () {
+    setInterval(function () {
+        runner();
+    }, 100);
 };
 
 // on opencv ready
