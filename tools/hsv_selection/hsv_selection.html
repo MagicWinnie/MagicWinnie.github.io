@@ -42,7 +42,7 @@
             <canvas id="bitwiseandOutput" />
         </div>
         <div class="column">
-            <h4 id="caption" class="unselectable">Change H, S and V ranges</h4>
+            <h4 id="caption" class="unselectable">Change Hue, Saturation and Value ranges</h4>
             <div id="trackbars">
                 <b class="unselectable">H low</b>
                 <input type="range" id="h_low" disabled value="0" min="0" max="180" step="1">
@@ -64,6 +64,12 @@
                 <input type="range" id="v_high" disabled value="255" min="0" max="255" step="1">
                 <output id="out_v_high"></output><br>
             </div>
+        </div>
+        <div class="column">
+            <h4 id="caption" class="unselectable">Export</h4>
+            <input id="add_inp" type="text"></input><br>
+            <button id="add_btn" class="button">Add the values</button><br>
+            <a id="exportJSON" onclick="handleDownloadClick(this);" class="button">Download JSON</a>
         </div>
     </div>
     <script src="hsv_selection.js"></script>

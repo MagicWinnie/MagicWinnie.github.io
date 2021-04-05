@@ -2,9 +2,44 @@
 let imgElement = document.getElementById('imageSrc');
 let inputElement = document.getElementById('fileInput');
 
+// buttons
+let add_btn = document.getElementById('add_btn');
+let download_btn = document.getElementById('download_btn');
+
+// var values = new Array();
+// values.push([]);
+
+
+var values = new Array();
+
+add_btn.addEventListener('click', handleAddClick, false);
+function handleAddClick(event) {
+    var obj = new Object();
+    var obj1 = new Object();
+    name = document.getElementById('add_inp').value;
+    obj[name] = obj1;
+    obj[name].h_low = parseInt(document.getElementById('h_low').value);
+    obj[name].s_low = parseInt(document.getElementById('s_low').value);
+    obj[name].v_low = parseInt(document.getElementById('v_low').value);
+
+    obj[name].h_high = parseInt(document.getElementById('h_high').value);
+    obj[name].s_high = parseInt(document.getElementById('s_high').value);
+    obj[name].v_high = parseInt(document.getElementById('v_high').value);
+    var jsonString = JSON.stringify(obj);
+    jsonString = jsonString.slice(1, jsonString.length - 1);
+    values.push(jsonString);
+};
+
+function handleDownloadClick(el) {
+    var final = "{" + values.join() + "}";
+    var data = "text/json;charset=utf-8," + encodeURIComponent(final);
+    el.setAttribute("href", "data:" + data);
+    el.setAttribute("download", "data.json");    
+};
+
 inputElement.addEventListener('change', (e) => {
-    console.log("im here");
     imgElement.src = URL.createObjectURL(e.target.files[0]);
+    values = new Array();
 }, false);
 
 // trackbars
@@ -36,12 +71,12 @@ v_high.oninput = function () {
 }
 
 function runner() {
-    try {    
+    try {
         let mat = cv.imread(imgElement);
-        
+
         let hsv = new cv.Mat();
         cv.cvtColor(mat, hsv, cv.COLOR_RGB2HSV);
-        
+
         let mask = new cv.Mat();
         let low = new cv.Mat(hsv.rows, hsv.cols, hsv.type(), [parseInt(h_low.value), parseInt(s_low.value), parseInt(v_low.value), 0]);
         let high = new cv.Mat(hsv.rows, hsv.cols, hsv.type(), [parseInt(h_high.value), parseInt(s_high.value), parseInt(v_high.value), 255]);
@@ -81,7 +116,7 @@ function onOpenCvReady() {
     document.getElementById("out_h_low").innerHTML = 0;
     document.getElementById("out_s_low").innerHTML = 0;
     document.getElementById("out_v_low").innerHTML = 0;
-    
+
     document.getElementById("out_h_high").innerHTML = 180;
     document.getElementById("out_s_high").innerHTML = 255;
     document.getElementById("out_v_high").innerHTML = 255;

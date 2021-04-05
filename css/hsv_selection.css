@@ -26,6 +26,25 @@ body {
     max-height: 240px;
 }
 
+input[type="text"] {
+    border: 2px solid black;
+    border-radius: 1px;
+    font-size: 18px;
+}
+
+.button {
+    background-color: #1c87c9;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 #hsvOutput {
     width: auto;
     height: auto;
