@@ -1,6 +1,45 @@
-<head>
-    <title>TEST</title>
-</head>
-<body>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dmitriy Okoneshnikov</title>
+    <script type="text/javascript">
+        function betweenTwoDates() {
+            var birthday = new Date(2004, 8, 10);
+            var ageDifMs = Date.now() - birthday;
+            var ageDate = new Date(ageDifMs);
+            var out = Math.abs(ageDate.getUTCFullYear() - 1970).toString() + " y.o. student of SESC NSU.";
+            document.getElementById("about").innerHTML = out;
+        }
+        window.onload = betweenTwoDates;
+    </script>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Tools</button>
+            <div class="dropdown-content">
+                <a href="tools/hsv_selection/hsv_selection.html">HSV Selection</a>
+            </div>
+        </div>
+    </div>
+    <h3>About: </h3>
+    <div class="info">
+        <p>I am Dmitriy Okoneshnikov.</p>
+        <p id="about"></p>
+        <p>I live in Novosirisk, Russia.</p>
+        <p>In free time I develop software.</p>
+    </div>
+    <h3>Contacts: </h3>
+    
+    <a href="https://vk.com/okoneshdmitriy" class="fa fa-vk"></a>
+    <a href="https://t.me/okonesh_dmitriy" class="fa fa-telegram"></a>
+    <a href="https://github.com/MagicWinnie" class="fa fa-github"></a>
+    <a href="https://instagram.com/okonesh.dmitriy" class="fa fa-instagram"></a>
 </body>
