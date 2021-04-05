@@ -38,6 +38,10 @@
             <canvas id="maskOutput" />
         </div>
         <div class="column">
+            <h4 id="caption">Bitwise and</h4>
+            <canvas id="bitwiseandOutput" />
+        </div>
+        <div class="column">
             <h4 id="caption">Change H, S and V ranges</h4>
             <div id="trackbars">
                 <b>H low</b>
@@ -51,13 +55,13 @@
                 <output id="out_v_low"></output><br>
                 <br>
                 <b>H high</b>
-                <input type="range" id="h_high" disabled value="0" min="0" max="180" step="1">
+                <input type="range" id="h_high" disabled value="180" min="0" max="180" step="1">
                 <output id="out_h_high"></output><br>
                 <b>S high</b>
-                <input type="range" id="s_high" disabled value="0" min="0" max="255" step="1">
+                <input type="range" id="s_high" disabled value="255" min="0" max="255" step="1">
                 <output id="out_s_high"></output><br>
                 <b>V high</b>
-                <input type="range" id="v_high" disabled value="0" min="0" max="255" step="1">
+                <input type="range" id="v_high" disabled value="255" min="0" max="255" step="1">
                 <output id="out_v_high"></output><br>
             </div>
         </div>
