@@ -76,7 +76,7 @@ function onOpenCvReady() {
     document.getElementById("out_s_low").innerHTML = 0;
     document.getElementById("out_v_low").innerHTML = 0;
     
-    document.getElementById("out_h_high").innerHTML = 255;
+    document.getElementById("out_h_high").innerHTML = 180;
     document.getElementById("out_s_high").innerHTML = 255;
     document.getElementById("out_v_high").innerHTML = 255;
 
