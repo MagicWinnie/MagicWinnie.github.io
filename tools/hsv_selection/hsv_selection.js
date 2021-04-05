@@ -28,6 +28,8 @@ function handleAddClick(event) {
     var jsonString = JSON.stringify(obj);
     jsonString = jsonString.slice(1, jsonString.length - 1);
     values.push(jsonString);
+
+    document.getElementById('add_inp').value = '';
 };
 
 function handleDownloadClick(el) {
