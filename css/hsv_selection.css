@@ -54,14 +54,21 @@ input[type="text"] {
 
 #add_inp {
     width: 250px;
+    height: 38px;
+    margin-bottom: 2px;
 }
 
 #add_btn {
     width: 255px;
+    height: 40px;
+    margin: 4px 2px;
+    vertical-align: middle;
 }
 
 #exportJSON {
-    width: 208px;
+    width: 207px;
+    height: 20px;
+    vertical-align: middle;
 }
 
 .container {
