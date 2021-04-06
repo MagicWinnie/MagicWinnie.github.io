@@ -29,6 +29,9 @@ input[type="text"] {
     border: 2px solid black;
     border-radius: 1px;
     font-size: 18px;
+    background-color: #333;
+    color: #bbc7be;
+    font-family: 'cascadia_coderegular';
 }
 
 .button {
@@ -90,26 +93,44 @@ input[type="text"] {
 #out_h_low {
     width: 50px;
     text-align: center;
+    background-color: #333;
+    color: #bbc7be;
+    font-family: 'cascadia_coderegular';
 }
 #out_s_low {
     width: 50px;
     text-align: center;
+    background-color: #333;
+    color: #bbc7be;
+    font-family: 'cascadia_coderegular';
 }
 #out_v_low {
     width: 50px;
     text-align: center;
+    background-color: #333;
+    color: #bbc7be;
+    font-family: 'cascadia_coderegular';
 }
 #out_h_high {
     width: 50px;
     text-align: center;
+    background-color: #333;
+    color: #bbc7be;
+    font-family: 'cascadia_coderegular';
 }
 #out_s_high {
     width: 50px;
     text-align: center;
+    background-color: #333;
+    color: #bbc7be;
+    font-family: 'cascadia_coderegular';
 }
 #out_v_high {
     width: 50px;
     text-align: center;
+    background-color: #333;
+    color: #bbc7be;
+    font-family: 'cascadia_coderegular';
 }
 
 div.info {

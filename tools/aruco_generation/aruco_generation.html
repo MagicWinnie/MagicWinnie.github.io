@@ -37,7 +37,7 @@
 
             <div class="field">
                 <label for="id_aruco" class="unselectable">Aruco ID:</label>
-                <input id="id_aruco" class="unselectable" type="number" min="0" max="1000" onkeypress="return event.charCode >= 48 && event.charCode <= 57"></output>
+                <input id="id_aruco" class="unselectable" type="number" min="0" max="999" onkeypress="return event.charCode >= 48 && event.charCode <= 57"></output>
 			</div>
 
             <div class="field">
@@ -51,11 +51,12 @@
         </div>
         <div class="column">
             <h4 id="caption" class="unselectable">Export</h4>
-            <a id="exportJSON" onclick="handleDownloadClick(this);" class="button">Download SVG</a>
+            <a id="downloadSVG" onclick="handleDownloadClick(this);" class="button">Download SVG</a>
         </div>
     </div>
     <script src="aruco_generation.js"></script>
-    <script async src="https://docs.opencv.org/4.5.2/opencv.js" onload="onOpenCvReady();" type="text/javascript">
+    <!-- <script async src="https://docs.opencv.org/4.5.2/opencv.js" onload="onOpenCvReady();" type="text/javascript"> -->
+    <script async src="../opencv.js" onload="onOpenCvReady();"></script>
     </script>
 </body>
 
