@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="aruco_generation.css">
+    <link rel="stylesheet" href="../../fonts/Cascadia/stylesheet.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dmitriy Okoneshnikov</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Tools</button>
+            <div class="dropdown-content">
+                <a href="../hsv_selection/hsv_selection.html">HSV Selection</a>
+                <a href="aruco_generation.html">Aruco Generation</a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="column">
+            <h4 id="caption" class="unselectable">Parameters</h4>
+            <div class="field">
+				<label for="dictionary" class="unselectable">Dictionary:</label>
+				<select name="dict" id="dictionary">
+                    <option value="orig" data-width="5" data-height="5">Aruco Original</option>
+                    <option selected value="4x4" data-width="4" data-height="4">4x4</option>
+                    <option value="5x5" data-width="5" data-height="5">5x5</option>
+                    <option value="6x6" data-width="6" data-height="6">6x6</option>
+                    <option value="7x7" data-width="7" data-height="7">7x7</option>
+				</select>
+			</div>
+
+            <div class="field">
+                <label for="id_aruco" class="unselectable">Aruco ID:</label>
+                <input id="id_aruco" class="unselectable" type="number" min="0" max="1000" onkeypress="return event.charCode >= 48 && event.charCode <= 57"></output>
+			</div>
+
+            <div class="field">
+                <label for="size_aruco" class="unselectable">Size, MM:</label>
+                <input id="size_aruco" class="unselectable" type="number" min="1" onkeypress="return event.charCode >= 48 && event.charCode <= 57"></output>
+			</div>
+        </div>
+        <div class="column">
+            <h4 id="caption" class="unselectable">Aruco</h4>
+            <canvas id="aruco"/>
+        </div>
+        <div class="column">
+            <h4 id="caption" class="unselectable">Export</h4>
+            <a id="exportJSON" onclick="handleDownloadClick(this);" class="button">Download SVG</a>
+        </div>
+    </div>
+    <script src="aruco_generation.js"></script>
+    <script async src="https://docs.opencv.org/4.5.2/opencv.js" onload="onOpenCvReady();" type="text/javascript">
+    </script>
+</body>
+
+</html>
