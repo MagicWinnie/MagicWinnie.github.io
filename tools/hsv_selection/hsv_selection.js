@@ -186,6 +186,4 @@ function onOpenCvReady() {
     v_high.removeAttribute('disabled');
 
     resetTrackbars();
-
-    document.getElementById('status').innerHTML = '[STATUS] OpenCV.js is ready.';
 }
