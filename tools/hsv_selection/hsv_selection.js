@@ -42,6 +42,7 @@ function handleDownloadClick(el) {
 inputElement.addEventListener('change', (e) => {
     imgElement.src = URL.createObjectURL(e.target.files[0]);
     values = new Array();
+    resetTrackbars();
 }, false);
 
 // trackbars
@@ -155,6 +156,25 @@ imgElement.onload = function () {
     }, 100);
 };
 
+function resetTrackbars() {
+    document.getElementById("out_h_low").value = 0;
+    document.getElementById("out_s_low").value = 0;
+    document.getElementById("out_v_low").value = 0;
+
+    document.getElementById("out_h_high").value = 180;
+    document.getElementById("out_s_high").value = 255;
+    document.getElementById("out_v_high").value = 255;
+
+    h_low.value = 0;
+    s_low.value = 0;
+    v_low.value = 0;
+    
+    h_high.value = 180;
+    s_high.value = 255;
+    v_high.value = 255;
+    
+}
+
 // on opencv ready
 function onOpenCvReady() {
     h_low.removeAttribute('disabled');
@@ -165,13 +185,7 @@ function onOpenCvReady() {
     s_high.removeAttribute('disabled');
     v_high.removeAttribute('disabled');
 
-    document.getElementById("out_h_low").innerHTML = 0;
-    document.getElementById("out_s_low").innerHTML = 0;
-    document.getElementById("out_v_low").innerHTML = 0;
-
-    document.getElementById("out_h_high").innerHTML = 180;
-    document.getElementById("out_s_high").innerHTML = 255;
-    document.getElementById("out_v_high").innerHTML = 255;
+    resetTrackbars();
 
     document.getElementById('status').innerHTML = '[STATUS] OpenCV.js is ready.';
 }

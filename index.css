@@ -96,19 +96,23 @@ div.info {
 .fa-instagram {
     background: #125688;
     color: white;
+    width: 20px;
 }
 
 .fa-vk {
     background: #103152;
     color: white;
+    width: 20px;
 }
 
 .fa-telegram {
     background: #303438;
     color: white;
+    width: 20px;
 }
 
 .fa-github {
     background: #262b30;
     color: white;
+    width: 20px;
 }
