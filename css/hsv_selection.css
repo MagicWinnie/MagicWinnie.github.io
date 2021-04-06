@@ -86,6 +86,31 @@ input[type="text"] {
     grid-auto-columns: minmax(10px, auto);
 }
 
+#out_h_low {
+    width: 50px;
+    text-align: center;
+}
+#out_s_low {
+    width: 50px;
+    text-align: center;
+}
+#out_v_low {
+    width: 50px;
+    text-align: center;
+}
+#out_h_high {
+    width: 50px;
+    text-align: center;
+}
+#out_s_high {
+    width: 50px;
+    text-align: center;
+}
+#out_v_high {
+    width: 50px;
+    text-align: center;
+}
+
 div.info {
     line-height: 60%;
 }

@@ -54,23 +54,73 @@ let s_high = document.getElementById('s_high');
 let v_high = document.getElementById('v_high');
 
 h_low.oninput = function () {
-    document.getElementById("out_h_low").innerHTML = this.value;
+    document.getElementById("out_h_low").value = this.value;
 }
 s_low.oninput = function () {
-    document.getElementById("out_s_low").innerHTML = this.value;
+    document.getElementById("out_s_low").value = this.value;
 }
 v_low.oninput = function () {
-    document.getElementById("out_v_low").innerHTML = this.value;
+    document.getElementById("out_v_low").value = this.value;
 }
 h_high.oninput = function () {
-    document.getElementById("out_h_high").innerHTML = this.value;
+    document.getElementById("out_h_high").value = this.value;
 }
 s_high.oninput = function () {
-    document.getElementById("out_s_high").innerHTML = this.value;
+    document.getElementById("out_s_high").value = this.value;
 }
 v_high.oninput = function () {
-    document.getElementById("out_v_high").innerHTML = this.value;
+    document.getElementById("out_v_high").value = this.value;
 }
+
+document.getElementById("out_h_low").oninput = function () {
+    if (parseInt(this.value) > 180) {
+        this.value = "180"; 
+    } else if (parseInt(this.value) < 0) {
+        this.value = "0"; 
+    }
+    h_low.value = this.value;
+}
+document.getElementById("out_s_low").oninput = function () {
+    if (parseInt(this.value) > 255) {
+        this.value = "255"; 
+    } else if (parseInt(this.value) < 0) {
+        this.value = "0"; 
+    }
+    s_low.value = this.value;
+}
+document.getElementById("out_v_low").oninput = function () {
+    if (parseInt(this.value) > 255) {
+        this.value = "255"; 
+    } else if (parseInt(this.value) < 0) {
+        this.value = "0"; 
+    }
+    v_low.value = this.value;
+}
+document.getElementById("out_h_high").oninput = function () {
+    if (parseInt(this.value) > 180) {
+        this.value = "180"; 
+    } else if (parseInt(this.value) < 0) {
+        this.value = "0"; 
+    }
+    h_high.value = this.value;
+}
+document.getElementById("out_s_high").oninput = function () {
+    if (parseInt(this.value) > 255) {
+        this.value = "255"; 
+    } else if (parseInt(this.value) < 0) {
+        this.value = "0"; 
+    }
+    s_high.value = this.value;
+}
+document.getElementById("out_v_high").oninput = function () {
+    if (parseInt(this.value) > 255) {
+        this.value = "255"; 
+    } else if (parseInt(this.value) < 0) {
+        this.value = "0"; 
+    }
+    v_high.value = this.value;
+}
+
 
 function runner() {
     try {
