@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../css/hsv_selection.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Dmitriy Okoneshnikov</title>
-    <!-- <script type="text/javascript"></script> -->
 </head>
 
 <body>
@@ -43,25 +43,43 @@
         <div class="column">
             <h4 id="caption" class="unselectable">Change Hue, Saturation and Value ranges</h4>
             <div id="trackbars">
-                <b class="unselectable">H low</b>
-                <input type="range" id="h_low" disabled value="0" min="0" max="180" step="1">
-                <output id="out_h_low"></output><br>
-                <b class="unselectable">S low</b>
-                <input type="range" id="s_low" disabled value="0" min="0" max="255" step="1">
-                <output id="out_s_low"></output><br>
-                <b class="unselectable">V low</b>
-                <input type="range" id="v_low" disabled value="0" min="0" max="255" step="1">
-                <output id="out_v_low"></output><br>
+                <div class="wrapper">
+                    <b class="unselectable">H low</b>
+                    <input type="range" id="h_low" disabled value="0" min="0" max="180" step="1">
+                    <output id="out_h_low" class="unselectable"></output>
+                </div>
+
+                <div class="wrapper">
+                    <b class="unselectable">S low</b>
+                    <input type="range" id="s_low" disabled value="0" min="0" max="255" step="1">
+                    <output id="out_s_low" class="unselectable"></output>
+                </div>
+
+                <div class="wrapper">
+                    <b class="unselectable">V low</b>
+                    <input type="range" id="v_low" disabled value="0" min="0" max="255" step="1">
+                    <output id="out_v_low" class="unselectable"></output>
+                </div>
+
                 <br class="unselectable">
-                <b class="unselectable">H high</b>
-                <input type="range" id="h_high" disabled value="180" min="0" max="180" step="1">
-                <output id="out_h_high"></output><br>
-                <b class="unselectable">S high</b>
-                <input type="range" id="s_high" disabled value="255" min="0" max="255" step="1">
-                <output id="out_s_high"></output><br>
-                <b class="unselectable">V high</b>
-                <input type="range" id="v_high" disabled value="255" min="0" max="255" step="1">
-                <output id="out_v_high"></output><br>
+
+                <div class="wrapper">
+                    <b class="unselectable">H high</b>
+                    <input type="range" id="h_high" disabled value="180" min="0" max="180" step="1">
+                    <output id="out_h_high" class="unselectable"></output>
+                </div>
+
+                <div class="wrapper">
+                    <b class="unselectable">S high</b>
+                    <input type="range" id="s_high" disabled value="255" min="0" max="255" step="1">
+                    <output id="out_s_high" class="unselectable"></output>
+                </div>
+
+                <div class="wrapper">
+                    <b class="unselectable">V high</b>
+                    <input type="range" id="v_high" disabled value="255" min="0" max="255" step="1">
+                    <output id="out_v_high" class="unselectable"></output>
+                </div>
             </div>
         </div>
         <div class="column">
@@ -75,4 +93,5 @@
     <script async src="https://docs.opencv.org/4.5.2/opencv.js" onload="onOpenCvReady();" type="text/javascript">
     </script>
 </body>
+
 </html>

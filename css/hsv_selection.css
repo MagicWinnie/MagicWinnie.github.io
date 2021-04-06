@@ -77,6 +77,15 @@ input[type="text"] {
     text-align: center;
 }
 
+.wrapper {
+    display: grid;
+    /* grid-template-columns: [left-start] 100px [left-end middle-start] 50px [middle-end]; */
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: 20% auto 20%;
+    grid-auto-columns: minmax(10px, auto);
+}
+
 div.info {
     line-height: 60%;
 }
