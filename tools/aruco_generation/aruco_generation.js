@@ -96,8 +96,8 @@ function runner() {
     dictionary = new cv.Dictionary(chooseDict(dict, id));
     cv.drawMarker(dictionary, id, widthIMG, markerImage, 1);
 
-    // let s = new cv.Scalar(255, 255, 255, 255);
-    // cv.copyMakeBorder(markerImage, markerImage, 15, 15, 15, 15, cv.BORDER_CONSTANT, s);
+    let s = new cv.Scalar(255, 255, 255, 255);
+    cv.copyMakeBorder(markerImage, markerImage, 15, 15, 15, 15, cv.BORDER_CONSTANT, s);
     cv.imshow("aruco", markerImage);
 
 
