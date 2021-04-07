@@ -14,7 +14,7 @@ function handleDownloadClick(el) {
     for (k = 1; k < bits[0] * bits[0]; k++)
     {
         color = "black";
-        if (bits[k] == 255)
+        if (bits[k])
         {
             color = "white";
         }
@@ -113,24 +113,25 @@ function runner() {
     }
 
     delta = Math.round(widthIMG/width);
-
-    let temp1 = new cv.Mat(width, width, cv.CV_8U);
-    cv.resize(markerImage, temp1, new cv.Size(width, width), 0, 0, cv.INTER_AREA);
-    
+    let temp1 = new cv.Mat();
+    //let temp1 = new cv.Mat(width, width, cv.CV_8U);
+    //cv.resize(markerImage, temp1, new cv.Size(width, width), 0, 0, cv.INTER_AREA);
+    cv.drawMarker(dictionary, id, width, temp1, 1);
     // cv.resize(temp1, markerImage, new cv.Size(200, 200), 0, 0, cv.INTER_AREA);
     bits.push(width);
 
     for (i = 0; i < width; i += 1) {
         for (j = 0; j < width; j += 1) {
-            if (temp1.ucharPtr(i, j)[0] < 255/2) {
+            bits.push(Math.round(temp1.ucharPtr(i, j)[0]/255));
+            /*if (temp1.ucharPtr(i, j)[0] < 255/2) {
                 bits.push(0);
             } else {
                 bits.push(255);
-            }
+            }*/
         }
     }
 
-    cv.imshow('aruco', markerImage);
+    //cv.imshow('aruco', markerImage);
     temp1.delete(); markerImage.delete(); dictionary.delete();
 }
 
