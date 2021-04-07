@@ -113,7 +113,7 @@ function runner() {
     }
 
     delta = Math.round(widthIMG/width);
-
+    let temp1 = new cv.Mat();
     //let temp1 = new cv.Mat(width, width, cv.CV_8U);
     //cv.resize(markerImage, temp1, new cv.Size(width, width), 0, 0, cv.INTER_AREA);
     cv.drawMarker(dictionary, id, width, temp1, 1);
