@@ -122,28 +122,36 @@ document.getElementById("out_v_high").oninput = function () {
     v_high.value = this.value;
 }
 
-
 function runner() {
     try {
-        let mat = cv.imread(imgElement);
+        var fileName = document.getElementById("fileInput").value;
+        var idxDot = fileName.lastIndexOf(".") + 1;
+        var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
 
-        let hsv = new cv.Mat();
-        cv.cvtColor(mat, hsv, cv.COLOR_RGB2HSV);
+        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png")
+        {
+            let mat = cv.imread(imgElement);
 
-        let mask = new cv.Mat();
-        let low = new cv.Mat(hsv.rows, hsv.cols, hsv.type(), [parseInt(h_low.value), parseInt(s_low.value), parseInt(v_low.value), 0]);
-        let high = new cv.Mat(hsv.rows, hsv.cols, hsv.type(), [parseInt(h_high.value), parseInt(s_high.value), parseInt(v_high.value), 255]);
-        cv.inRange(hsv, low, high, mask);
-
-        let out = new cv.Mat();
-        cv.bitwise_and(mat, mat, out, mask);
-
-        cv.imshow('hsvOutput', hsv);
-        cv.imshow('maskOutput', mask);
-        cv.imshow('bitwiseandOutput', out);
-
-        mat.delete(); hsv.delete(); mask.delete();
-        low.delete(); high.delete(); out.delete();
+            let hsv = new cv.Mat();
+            cv.cvtColor(mat, hsv, cv.COLOR_RGB2HSV);
+    
+            let mask = new cv.Mat();
+            let low = new cv.Mat(hsv.rows, hsv.cols, hsv.type(), [parseInt(h_low.value), parseInt(s_low.value), parseInt(v_low.value), 0]);
+            let high = new cv.Mat(hsv.rows, hsv.cols, hsv.type(), [parseInt(h_high.value), parseInt(s_high.value), parseInt(v_high.value), 255]);
+            cv.inRange(hsv, low, high, mask);
+    
+            let out = new cv.Mat();
+            cv.bitwise_and(mat, mat, out, mask);
+    
+            cv.imshow('hsvOutput', hsv);
+            cv.imshow('maskOutput', mask);
+            cv.imshow('bitwiseandOutput', out);
+    
+            mat.delete(); hsv.delete(); mask.delete();
+            low.delete(); high.delete(); out.delete();
+        } else {
+            // alert("Only jpg/jpeg/png files are allowed!");
+        }   
     } catch (err) {
         console.log(err);
     }
