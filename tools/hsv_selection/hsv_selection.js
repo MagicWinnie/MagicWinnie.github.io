@@ -6,30 +6,32 @@ let inputElement = document.getElementById('fileInput');
 let add_btn = document.getElementById('add_btn');
 let download_btn = document.getElementById('download_btn');
 
-// var values = new Array();
-// values.push([]);
-
-
 var values = new Array();
 
 add_btn.addEventListener('click', handleAddClick, false);
 function handleAddClick(event) {
     var obj = new Object();
     var obj1 = new Object();
-    name = document.getElementById('add_inp').value;
-    obj[name] = obj1;
-    obj[name].h_low = parseInt(document.getElementById('h_low').value);
-    obj[name].s_low = parseInt(document.getElementById('s_low').value);
-    obj[name].v_low = parseInt(document.getElementById('v_low').value);
+    var name = document.getElementById('add_inp').value;
+    if (name == "")
+    {
+        alert("Name the values!")
+    } else 
+    {
+        obj[name] = obj1;
+        obj[name].h_low = parseInt(document.getElementById('h_low').value);
+        obj[name].s_low = parseInt(document.getElementById('s_low').value);
+        obj[name].v_low = parseInt(document.getElementById('v_low').value);
 
-    obj[name].h_high = parseInt(document.getElementById('h_high').value);
-    obj[name].s_high = parseInt(document.getElementById('s_high').value);
-    obj[name].v_high = parseInt(document.getElementById('v_high').value);
-    var jsonString = JSON.stringify(obj);
-    jsonString = jsonString.slice(1, jsonString.length - 1);
-    values.push(jsonString);
+        obj[name].h_high = parseInt(document.getElementById('h_high').value);
+        obj[name].s_high = parseInt(document.getElementById('s_high').value);
+        obj[name].v_high = parseInt(document.getElementById('v_high').value);
+        var jsonString = JSON.stringify(obj);
+        jsonString = jsonString.slice(1, jsonString.length - 1);
+        values.push(jsonString);
 
-    document.getElementById('add_inp').value = '';
+        document.getElementById('add_inp').value = '';
+    }
 };
 
 function handleDownloadClick(el) {
@@ -56,21 +58,27 @@ let v_high = document.getElementById('v_high');
 
 h_low.oninput = function () {
     document.getElementById("out_h_low").value = this.value;
+    runner();
 }
 s_low.oninput = function () {
     document.getElementById("out_s_low").value = this.value;
+    runner();
 }
 v_low.oninput = function () {
     document.getElementById("out_v_low").value = this.value;
+    runner();
 }
 h_high.oninput = function () {
     document.getElementById("out_h_high").value = this.value;
+    runner();
 }
 s_high.oninput = function () {
     document.getElementById("out_s_high").value = this.value;
+    runner();
 }
 v_high.oninput = function () {
     document.getElementById("out_v_high").value = this.value;
+    runner();
 }
 
 document.getElementById("out_h_low").oninput = function () {
@@ -80,6 +88,7 @@ document.getElementById("out_h_low").oninput = function () {
         this.value = "0"; 
     }
     h_low.value = this.value;
+    runner();
 }
 document.getElementById("out_s_low").oninput = function () {
     if (parseInt(this.value) > 255) {
@@ -88,6 +97,7 @@ document.getElementById("out_s_low").oninput = function () {
         this.value = "0"; 
     }
     s_low.value = this.value;
+    runner();
 }
 document.getElementById("out_v_low").oninput = function () {
     if (parseInt(this.value) > 255) {
@@ -96,6 +106,7 @@ document.getElementById("out_v_low").oninput = function () {
         this.value = "0"; 
     }
     v_low.value = this.value;
+    runner();
 }
 document.getElementById("out_h_high").oninput = function () {
     if (parseInt(this.value) > 180) {
@@ -104,6 +115,7 @@ document.getElementById("out_h_high").oninput = function () {
         this.value = "0"; 
     }
     h_high.value = this.value;
+    runner();
 }
 document.getElementById("out_s_high").oninput = function () {
     if (parseInt(this.value) > 255) {
@@ -112,6 +124,7 @@ document.getElementById("out_s_high").oninput = function () {
         this.value = "0"; 
     }
     s_high.value = this.value;
+    runner();
 }
 document.getElementById("out_v_high").oninput = function () {
     if (parseInt(this.value) > 255) {
@@ -120,6 +133,7 @@ document.getElementById("out_v_high").oninput = function () {
         this.value = "0"; 
     }
     v_high.value = this.value;
+    runner();
 }
 
 function runner() {
@@ -127,8 +141,11 @@ function runner() {
         var fileName = document.getElementById("fileInput").value;
         var idxDot = fileName.lastIndexOf(".") + 1;
         var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
-
-        if (extFile=="jpg" || extFile=="jpeg" || extFile=="png")
+        console.log(extFile);
+        if (extFile == "")
+        {
+            alert("Upload an image!");
+        } else if (extFile == "jpg" || extFile == "jpeg" || extFile == "png")
         {
             let mat = cv.imread(imgElement);
 
@@ -149,8 +166,9 @@ function runner() {
     
             mat.delete(); hsv.delete(); mask.delete();
             low.delete(); high.delete(); out.delete();
-        } else {
-            // alert("Only jpg/jpeg/png files are allowed!");
+        } else
+        {
+            alert("Only jpg/jpeg/png are allowed!");
         }   
     } catch (err) {
         console.log(err);
@@ -159,9 +177,7 @@ function runner() {
 
 // main function
 imgElement.onload = function () {
-    setInterval(function () {
-        runner();
-    }, 100);
+    runner();
 };
 
 function resetTrackbars() {
@@ -180,7 +196,6 @@ function resetTrackbars() {
     h_high.value = 180;
     s_high.value = 255;
     v_high.value = 255;
-    
 }
 
 // on opencv ready
