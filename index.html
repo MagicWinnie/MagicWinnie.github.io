@@ -33,7 +33,7 @@
             var birthday = new Date(2004, 8, 10);
             var ageDifMs = Date.now() - birthday;
             var ageDate = new Date(ageDifMs);
-            var out = Math.abs(ageDate.getUTCFullYear() - 1970).toString() + " y.o. student of SESC NSU.";
+            var out = Math.abs(ageDate.getUTCFullYear() - 1970).toString() + " y.o. studying at SESC of NSU.";
             document.getElementById("about").innerHTML = out;
         }
         window.onload = betweenTwoDates;
