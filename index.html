@@ -33,7 +33,7 @@
             var birthday = new Date(2004, 8, 10);
             var ageDifMs = Date.now() - birthday;
             var ageDate = new Date(ageDifMs);
-            var out = Math.abs(ageDate.getUTCFullYear() - 1970).toString() + " y.o. studying at SESC of NSU.";
+            var out = Math.abs(ageDate.getUTCFullYear() - 1970).toString() + " y.o. student.";
             document.getElementById("about").innerHTML = out;
         }
         window.onload = betweenTwoDates;
@@ -48,6 +48,7 @@
             <div class="dropdown-content">
                 <a href="tools/hsv_selection/hsv_selection.html">HSV Selection</a>
                 <a href="tools/aruco_generation/aruco_generation.html">Aruco Generation</a>
+                <!-- <a href="tools/image_morphing/image_morphing.html">Image Morphing</a> -->
             </div>
         </div>
     </div>
