@@ -1,5 +1,5 @@
 body {
-    font-family: 'cascadia_coderegular', Arial, sans-serif;
+    font-family: 'Overpass', Arial, sans-serif;
     background-color: #181818;
     color: white;
 }
@@ -27,20 +27,20 @@ input[type="text"] {
 #dictionary {
     background-color: #333;
     color: #bbc7be;
-    font-family: 'cascadia_coderegular';
+    font-family: 'Overpass';
 }
 
 #id_aruco {
     background-color: #333;
     color: #bbc7be;
-    font-family: 'cascadia_coderegular';
+    font-family: 'Overpass';
     width: 145px;
 }
 
 #size_aruco {
     background-color: #333;
     color: #bbc7be;
-    font-family: 'cascadia_coderegular';
+    font-family: 'Overpass';
     width: 145px;
 }
 
