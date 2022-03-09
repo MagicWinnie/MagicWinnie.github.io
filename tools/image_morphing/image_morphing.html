@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="image_morphing.css">
+    <link rel="stylesheet" href="../../fonts/Cascadia/stylesheet.css" type="text/css" charset="utf-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dmitriy Okoneshnikov</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Tools</button>
+            <div class="dropdown-content">
+                <a href="../hsv_selection/hsv_selection.html">HSV Selection</a>
+                <a href="../aruco_generation/aruco_generation.html">Aruco Generation</a>
+                <a href="image_morphing.html">Image Morphing</a>
+            </div>
+        </div>
+    </div>
+    <h3>EXAMPLE TEXT</h3>
+    <h4>EXAMPLE TEXT</h4>
+    <div class="container">
+        <!-- Open files -->
+        <div class="column">
+            <div class="caption_open_1">
+                Open the image №1
+                <input type="file" id="fileInput_1" name="file" accept="image/png, image/gif, image/jpeg"/>
+            </div>
+            <h4 id="caption" class="unselectable">Image №1</h4>
+            <img id="imageSrc_1" onerror="this.style.display='none'" />
+        </div>
+        <div class="column">
+            <div class="caption_open_2">
+                Open the image №2
+                <input type="file" id="fileInput_2" name="file" accept="image/png, image/gif, image/jpeg"/>
+            </div>
+            <h4 id="caption" class="unselectable">Image №2</h4>
+            <img id="imageSrc_2" onerror="this.style.display='none'" />
+        </div>
+        <!-- Animation -->
+        <div class="column">
+            <h4 id="caption" class="unselectable">Animation</h4>
+            <canvas id="animation"/>
+        </div>
+        <!-- Settings -->
+        <div class="column">
+            <h4 id="caption" class="unselectable">Settings</h4>
+            <div id="settings">
+                <div class="container">
+                    <!-- Labels -->
+                    <div class="column"> 
+                        <label for="delta" class="unselectable">Delta (from 1 to 100):</label><br>
+                        <label for="duration" class="unselectable">Duration (from 0.01 to 10.00):</label><br>
+                        <label for="loop" class="unselectable">Loop?</label>
+                    </div>
+                    <!-- Inputs -->
+                    <div class="column"> 
+                        <input id="delta" disabled class="unselectable" type="number" min="1" max="100"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57"></output><br>
+                        <input id="duration" disabled class="unselectable" type="number" min="0.01" max="10" step="0.01"
+                            onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 44"></output><br>
+                        <input type="checkbox" disabled id="loop" name="loop" checked>
+                    </div>
+                </div>
+                <button id="add_corner_btn" disabled class="button">Add corner points</button>
+                <br><button id="face_rec_btn" disabled class="button">Generate from face recognition</button>
+                <br><button id="start_btn" disabled class="button">Start</button>
+            </div>
+        </div>
+        <!-- Export -->
+        <div class="column">
+            <h4 id="caption" class="unselectable">Export</h4>
+                <div class="container">
+                    <!-- Labels -->
+                    <div class="column">
+                        <label for="output_gif_res" class="unselectable">Output GIF Resolution:</label><br>
+                        <label for="output_gif_scale" class="unselectable">Output GIF Size Scale:</label><br>
+                    </div>
+                    <!-- Inputs -->
+                    <div class="column">
+                        <span id="output_gif_res">None</span><br>
+                        <input id="output_gif_scale" disabled class="unselectable" type="number" min="0.1" max="10" step="0.1"
+                            onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 44"></output>
+                    </div>
+                </div>
+                <br><button id="save_btn" disabled class="button">Export animation</button>
+                <br><button id="reset_btn" disabled class="button">Reset</button>
+        </div>
+        <!-- List of points -->
+        <div class="column">
+            <h4 id="caption" class="unselectable">List of points</h4>
+            <div class="container">
+                <div class="column">
+                    <select id="select_corner" multiple disabled>
+                        <optgroup label="Corner points">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="column">
+                    <select id="select_face" multiple disabled>
+                        <optgroup label="Face points">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="column">
+                    <select id="select_user" multiple disabled> 
+                        <optgroup label="User points">
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="image_morphing.js"></script>
+    <!-- <script async src="https://docs.opencv.org/4.5.2/opencv.js" onload="onOpenCvReady();" type="text/javascript"> -->
+    <script async src="../opencv.js" onload="onOpenCvReady();"></script>
+    </script>
+</body>
+
+</html>
