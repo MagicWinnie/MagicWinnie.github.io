@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="qr_code.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass" type="text/css" charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Dmitriy Okoneshnikov</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="../../index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Projects</button>
+            <div class="dropdown-content">
+                <a href="../hsv_selection/hsv_selection.html">HSV Selection</a>
+                <a href="../aruco_generation.html">Aruco Generation</a>
+                <a href="qr_code.html">QR Code</a>
+                <a href="../food_recognition/FoodRecognition.html">Food Recognition</a>
+                <!-- <a href="../image_morphing/image_morphing.html">Image Morphing</a> -->
+            </div>
+        </div>
+    </div>
+    <h3>QR Code scanner from clipboard</h3>
+    <h4 id="loading_text">This scanner uses QR Scanner by nimiq, wait while it loads.</h4>
+    <div class="container" id="paste_area">
+        <div>
+            <div>Press <kbd class="key">Ctrl</kbd> + <kbd class="key">V</kbd> in this window.</div>
+            <img class="preview" id="preview"/>
+        </div>
+    </div>
+    <div class="qr-result-container">
+        <b>Detected QR code: &nbsp;&nbsp;</b>
+        <span id="qr-result">None</span>
+    </div>
+    <script type="module" src="qr_code.js"></script>
+</body>
+
+</html>
