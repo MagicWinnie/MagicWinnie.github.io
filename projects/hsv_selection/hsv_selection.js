@@ -208,5 +208,7 @@ function onOpenCvReady() {
     s_high.removeAttribute('disabled');
     v_high.removeAttribute('disabled');
 
+    document.getElementById("loading_text").outerHTML = "";
+
     resetTrackbars();
 }

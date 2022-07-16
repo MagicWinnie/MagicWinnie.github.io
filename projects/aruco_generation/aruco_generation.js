@@ -139,5 +139,8 @@ function runner() {
 function onOpenCvReady() {
     document.getElementById("id_aruco").value = 0;
     document.getElementById("size_aruco").value = 200;
+
+    document.getElementById("loading_text").outerHTML = "";
+    
     runner();
 }
