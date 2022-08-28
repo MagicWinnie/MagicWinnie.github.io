@@ -31,9 +31,17 @@
     <script type="text/javascript">
         function betweenTwoDates() {
             var birthday = new Date(2004, 8, 10);
-            var ageDifMs = Date.now() - birthday;
-            var ageDate = new Date(ageDifMs);
-            var out = Math.abs(ageDate.getUTCFullYear() - 1970).toString() + " y.o. student.";
+            var today = new Date();
+            var diff = -1;
+            if (birthday.getMonth > today.getMonth)
+                diff = max(0, today.getUTCFullYear() - birthday.getUTCFullYear() - 1);
+            else if (birthday.getMonth == today.getMonth && birthday.getDay > today.getDay)
+                diff = max(0, today.getUTCFullYear() - birthday.getUTCFullYear() - 1);
+            else
+                diff = today.getUTCFullYear() - birthday.getUTCFullYear();
+
+            console.log(diff);
+            var out = diff.toString() + " y.o. student.";
             document.getElementById("about").innerHTML = out;
         }
         window.onload = betweenTwoDates;
