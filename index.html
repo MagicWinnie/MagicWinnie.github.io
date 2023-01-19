@@ -33,14 +33,14 @@
             var birthday = new Date(2004, 8, 10);
             var today = new Date();
             var diff = -1;
-            if (birthday.getMonth > today.getMonth)
-                diff = max(0, today.getUTCFullYear() - birthday.getUTCFullYear() - 1);
-            else if (birthday.getMonth == today.getMonth && birthday.getDay > today.getDay)
-                diff = max(0, today.getUTCFullYear() - birthday.getUTCFullYear() - 1);
+            
+            if (today.getMonth() < birthday.getMonth())
+                diff = today.getUTCFullYear() - birthday.getUTCFullYear() - 1;
+            else if (today.getMonth() == birthday.getMonth() && today.getDay() < birthday.getDay())
+                diff = today.getUTCFullYear() - birthday.getUTCFullYear() - 1;
             else
                 diff = today.getUTCFullYear() - birthday.getUTCFullYear();
 
-            console.log(diff);
             var out = diff.toString() + " y.o. student at Innopolis University.";
             document.getElementById("about").innerHTML = out;
         }
